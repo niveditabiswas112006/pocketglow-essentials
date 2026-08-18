@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+frontend/node_modules
+backend/node_modules
+
+# Build output
+dist
+build
+frontend/dist
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+frontend/.env
+backend/.env
+
+# Local Database & Logs
+backend/data/
+*.log
+npm-debug.log*
+
+# Editor & OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

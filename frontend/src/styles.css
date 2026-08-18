@@ -1,0 +1,162 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-beige: var(--beige);
+  --color-nude: var(--nude);
+  --color-blush: var(--blush);
+  --color-ink: var(--ink);
+  --color-burgundy: var(--burgundy);
+  --color-wine: var(--wine);
+  --color-champagne: var(--champagne);
+  --color-ivory: var(--ivory);
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+/* Light theme (warm ivory, burgundy accents) */
+:root {
+  --radius: 0.5rem;
+
+  --burgundy: #4A0F1F;
+  --wine: #7A1027;
+  --blush: #B9867F;
+  --champagne: #DDB8AE;
+  --ivory: #F6F0EB;
+  --cream: #F6F0EB;
+  --beige: #DDB8AE;
+  --nude: #DDB8AE;
+  --ink: #0B0B0B;
+
+  --background: #F6F0EB;
+  --foreground: #0B0B0B;
+
+  --card: #FFF8F4;
+  --card-foreground: #0B0B0B;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B0B0B;
+
+  --primary: #4A0F1F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #DDB8AE;
+  --secondary-foreground: #4A0F1F;
+  --muted: #FFF8F4;
+  --muted-foreground: #917E71;
+  --accent: #DDB8AE;
+  --accent-foreground: #4A0F1F;
+  --destructive: #7A1027;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(74,15,31,0.14);
+  --input: #FFFFFF;
+  --ring: #7A1027;
+
+  --navbar: #F6F0EB;
+  --section: #FFF8F4;
+  --footer: #DDB8AE;
+  --link: #7A1027;
+  --text-secondary: #5C4A46;
+}
+
+/* Dark theme (luxury black + burgundy) — default */
+.dark {
+  --burgundy: #4A0F1F;
+  --wine: #7A1027;
+  --blush: #C49A94;
+  --champagne: #DDB8AE;
+  --ivory: #F6F0EB;
+  /* In dark mode: --ink becomes the light foreground so text-ink renders as light text */
+  --ink: #F0EAE4;
+  /* In dark mode: --cream becomes the dark background so bg-cream / text-cream work */
+  --cream: #0B0B0B;
+  /* In dark mode: --beige becomes a dark card tone */
+  --beige: #1A1212;
+  --nude: #181818;
+
+  --background: #0B0B0B;
+  --foreground: #F6F0EB;
+
+  --card: #181818;
+  --card-foreground: #F6F0EB;
+  --popover: #151515;
+  --popover-foreground: #F6F0EB;
+
+  --primary: #7A1027;
+  --primary-foreground: #FFFFFF;
+  --secondary: #4A0F1F;
+  --secondary-foreground: #F6F0EB;
+  --muted: #1E1E1E;
+  --muted-foreground: #B9A09A;
+  --accent: #4A0F1F;
+  --accent-foreground: #DDB8AE;
+  --destructive: #7A1027;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(221,184,174,0.15);
+  --input: #151515;
+  --ring: #DDB8AE;
+
+  --navbar: #0B0B0B;
+  --section: #151515;
+  --footer: #0F0709;
+  --link: #DDB8AE;
+  --text-secondary: #DDB8AE;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, fill 300ms ease, stroke 300ms ease;
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  input::placeholder, textarea::placeholder {
+    color: var(--muted-foreground);
+  }
+}
